@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>V_A</title>
+  </head>
+  <body>
+
+
+<script>
+
+      "use strict"
+
+
+        function FE(str) {
+          str=str.toLowerCase();
+          var arr=str.split("");
+          const vowels=["а","е","ё","и","о","у","э","ю","я"];
+          var cnt = 0;
+          
+          //function a(v,i,a) {
+            //if (vowels.includes(v)) {
+              //cnt++;
+            //}
+          //}
+          //arr.forEach(a)
+          
+          arr.forEach(
+            v => { if ( vowels.includes(v) ) cnt++; }
+          );
+          return cnt;
+        }
+
+        function FI(str) {
+          str=str.toLowerCase();
+          var arr=str.split("");
+          const vowels=["а","е","ё","и","о","у","э","ю","я"];
+         
+          //function b(v,i,a) {
+            //return vowels.includes(v);
+          //}
+          //var num=arr.filter(b);
+          //return num.length;
+        
+          const num=arr.filter(
+            v => vowels.includes(v) 
+          );
+          return num.length;
+        }
+
+        function RE(str) {
+          str=str.toLowerCase();
+          var arr=str.split("");
+          const vowels=["а","е","ё","и","о","у","э","ю","я"];
+           
+          //function c(acc, ch) {
+            //if (vowels.includes(ch))
+              //acc++; 
+              //return acc;
+          //}
+          //return arr.reduce( f, 0 )
+
+          return arr.reduce( (acc, ch) => {
+              if (vowels.includes(ch))
+                acc++; 
+              return acc;
+          }, 0);
+        }
+   
+
+      var s=prompt('Введите строку');
+      console.log(FE(s));
+      console.log(FI(s));
+      console.log(RE(s));
+
+
+
+
+</script>
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>FunctionH</title>
+  </head>
+  <body>
+
+    <input type="text" value="Ввод информации о напитке" onclick="addDrink()">;
+    <input type="text" value="Получение информации о напитке" onclick="getDrink()">;
+    <input type="text" value="Удаление информации о напитке" onclick="deleteDrink()">;
+    <input type="text" value="Перечень всех напитков" onclick="listDrink()">;
+
+<script>
+
+      "use strict"
+
+      function HashStorageFunc() {
+        var self=this;
+        var storage = {};
+
+        self.addValue = function (key, value) {
+          storage[key]=value;
+        };
+
+        self.getValue = function (key) {
+          return storage[key];
+        };
+
+        self.deleteValue = function (key) {   
+          if (key in storage) {
+            delete storage[key]; 
+            return true;
+          }
+          return false; 
+        };
+
+        self.getKeys = function (key) {
+          return Object.keys(storage);
+        }
+      }
+
+      const drinkStorage = new HashStorageFunc();
+
+      function addDrink () {
+        const drinkName=prompt("Ведите название напитка");
+        const drinkRecipe=prompt("Ведите рецепт напитка");
+        const drinkAlc=confirm("Напиток содержит алкоголь?");
+
+        drinkStorage.addValue(drinkName, {r:drinkRecipe, a:drinkAlc});
+      }
+
+      function getDrink() {
+        const drinkName=prompt("Информацию о каком напитке Вы хотите получить?");
+        const info=drinkStorage.getValue(drinkName);
+        
+
+        if (info==undefined) {
+          console.log("Такого напитка нет в хранилище")
+        }
+        else {
+          var alc=(info.a===true)?'да':'нет';
+          console.log("напиток " + drinkName + '\n' + "алкогольный " + alc + '\n' + "рецепт приготовления " + info.r);
+        }
+               
+      }
+
+      function deleteDrink() {
+        const drinkName=prompt("Информацию о каком напитке Вы хотите удалить?");
+        const del=drinkStorage.deleteValue(drinkName);
+        if (del==true) {
+          alert("Напиток удален")
+        }
+        else {
+          alert("такого напитка нет в хранилище")
+        };
+        
+
+      }
+
+      function listDrink() {
+        var drinks=drinkStorage.getKeys();
+        alert("список напитков:\n" + drinks);
+    
+      }
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+

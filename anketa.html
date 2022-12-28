@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>OPER</title>
+  </head>
+  <body>
+
+
+<script>
+
+      "use strict"
+        var male='мужской';
+        var female='женский';
+
+
+        var famStr=prompt('Введите вашу фамилию');
+
+        while ( true ) {
+
+            if ( Boolean(famStr) )
+                break; 
+            famStr=prompt('Введите Вашу фамилию корректно');
+        }
+
+        var nameStr=prompt('Введите ваше имя');
+        
+        while ( true ) {
+
+            if ( Boolean(nameStr) )
+                break; 
+            nameStr=prompt('Введите Ваше имя корректно');
+        }
+
+        var otStr=prompt('Введите ваше отчество');
+
+        while ( true ) {
+
+            if ( Boolean(otStr) )
+                break; 
+            otStr=prompt('Введите Ваше отчество корректно');
+        }
+
+        var ageStr=prompt('Введите ваш возраст');
+
+        while ( true ) {
+            var age=parseInt(ageStr);
+            if ( !isNaN(age) )
+                break; 
+            ageStr=prompt('Введите ваш возраст корректно');
+        }
+
+        var gender=confirm('Ваш пол мужской? (Если пол женский, нажмите "Отмена")');
+
+  
+        switch (gender) {
+          case true:
+              var old=(age>=60) ? 'да' : 'нет' ;
+           break;
+          case false:
+              var old=(age>=55) ? 'да' : 'нет' ;  
+           break;
+       }
+  
+       var gender=(gender==true) ? male : female ;
+
+        alert('ваше ФИО: ' + famStr + ' ' + nameStr + ' ' + otStr +
+                   '\nваш возраст в годах: ' + age + ' лет' +
+                   '\nваш возраст в днях: ' + (age*365) +
+                   '\nчерез 5 лет вам будет: ' + (age+5) +
+                    '\nваш пол: ' + gender +   
+                    '\nвы на пенсии: ' + old);
+
+</script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

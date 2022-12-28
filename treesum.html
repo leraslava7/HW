@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>SumMass</title>
+  </head>
+  <body>
+
+
+<script>
+
+      "use strict"
+
+
+      var m=[ 5, 7,
+[ 4, [2], 8, [1,3], 2 ],
+[ 9, [] ],
+1, 8
+];
+
+
+function treeSum(a) {
+  var f=0;
+  for (var i=0; i<a.length; i++) {
+    if (a[i] instanceof Array) {
+    f+=treeSum(a[i]);
+    }
+    else {
+    f+=a[i];
+    }
+    
+    
+  }
+  return f;
+  }
+  
+
+
+
+console.log ( treeSum(m) );
+
+</script>
+
+
+
+
+  </body>
+</html>
+

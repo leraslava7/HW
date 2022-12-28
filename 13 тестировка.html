@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>TRY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=FFHjewDssMJ9zqXr7thO5-TIx0C95b9NAq93yW6T8CfqOe9vf-yWbBqg8QqPJTlJ7IztouMXsqrP-RYYiMraYw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jMi1kZWVwY29weS5sZW9uaWRzaHV0b3YucmVwbC5jby8"/><script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <script>
+      mocha.setup('bdd'); // техника "Behavior Driven Development", но мы ей на самом деле не следуем
+      const assert = chai.assert;
+    </script>
+  </head>
+  <body>
+
+
+    <script>
+
+function squareRoots(a,b,c) {
+            const d=b*b-4*a*c; // дискриминант
+    
+            if ( d<0 )
+                return []; // нет корней
+    
+            if ( d==0 )
+                return [ -b/(2*a) ]; // один корень
+
+            else  if (a!=0) {
+                const x1=(-b+Math.sqrt(d))/(2*a);
+                const x2=(-b-Math.sqrt(d))/(2*a);
+                return [ x1, x2 ]; // два корня
+            }  
+              else {
+                const x1=(-c/b);
+                return [ x1 ]; // один корень
+
+              } 
+
+        }
+    
+    </script>
+
+    
+
+
+<div id="mocha"></div>
+
+<script>
+
+  describe('squareRoots - функция нахождения корней квадратного уравнения', function() {
+
+    const testSet=[
+      {a:1, b:-2,c:-3,  roots:[3,-1] },
+      {a:1, b:12,c:36,  roots:[-6]   },
+      {a:1, b:1, c:1,   roots:[]     },
+      {a:-1,b:-2,c:15,  roots:[-5,3] },
+      {a:0, b:5, c:-10, roots:[2] },
+    ];
+
+    for ( let test of testSet ) {
+      it(`находит корни при a=${test.a} b=${test.b} c=${test.c} и они равны [${test.roots.join(",")}]`, function(){
+          const roots=squareRoots(test.a,test.b,test.c);
+          assert.deepEqual(roots,test.roots);
+      });
+    }
+
+  });
+
+  mocha.run();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+  </body>
+</html>
+
