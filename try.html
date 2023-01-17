@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>DYN_FORM</title>
+  </head>
+  <body>
+
+    <div id="frm"></div>
+
+  <form name="frm" method="get" action="https://fe.it-academy.by/TestForm.php">
+    <label for="WN">Название сайта: </label>
+    <input id="WN" type="text" name="webname"><br>
+    <label for="URL">URL сайта: </label>
+    <input id="URL" type="text" name="url"><br>
+    <label for="QUA">Посетителей в сутки: </label>
+    <input id="QUA" type="text" name="quantity"><br>
+    <label for="EMAIL">E-mail для связи: </label>
+    <input id="EMAIL" type="text" name="email"><br>
+    <label for="CAT">Рубрика каталога: </label>
+    <select id="CAT" name="catalog">
+      <option value="1">бытовая техника</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select><br>
+    <label for="PAY">Размещение: </label>
+    <input type="radio" name="answer" value="1">бесплатное
+    <input type="radio" name="answer" value="1">платное
+    <input type="radio" name="answer" value="1">VIP<br>
+    <label for="REW">Разрешить отзывы:</label>
+    <input id="REW" type="checkbox" name="rewies" checked><br>
+    <label for="WEB">Описание сайта:</label><br>
+    <textarea name="text"></textarea><br>
+    <input type="submit" value="Опубликовать">
+  </form>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <input type="button" value="Построить форму №1" onclick="addForm()">
+  <input type="button" value="Построить форму №2" onclick="addForm()">
+
+<script>
+      "use strict"
+      var formDef1=
+[
+{label:'Название сайта:',kind:'longtext',name:'sitename'},
+{label:'URL сайта:',kind:'longtext',name:'siteurl'},
+{label:'Посетителей в сутки:',kind:'number',name:'visitors'},
+{label:'E-mail для связи:',kind:'shorttext',name:'email'},
+{label:'Рубрика каталога:',kind:'combo',name:'division',
+variants:[{text:'здоровье',value:1},{text:'домашний уют',value:2},{text:'бытовая техника',value:3}]},
+{label:'Размещение:',kind:'radio',name:'payment',
+variants:[{text:'бесплатное',value:1},{text:'платное',value:2},{text:'VIP',value:3}]},
+{label:'Разрешить отзывы:',kind:'check',name:'votes'},
+{label:'Описание сайта:',kind:'memo',name:'description'},
+{caption:'Опубликовать',kind:'submit'},
+];
+var formDef2=
+[
+{label:'Фамилия:',kind:'longtext',name:'lastname'},
+{label:'Имя:',kind:'longtext',name:'firstname'},
+{label:'Отчество:',kind:'longtext',name:'secondname'},
+{label:'Возраст:',kind:'number',name:'age'},
+{caption:'Зарегистрироваться',kind:'submit'},
+];
+
+      function addForm() {
+        const contForm=document.forms.frm;
+        const newTagElement=document.createElement('label');
+        const newTextElement=document.createTextNode('Фамилия');
+        newTagElement.appendChild(newTextElement);
+        contForm.appendChild(newTagElement);
+
+        for ( var list=0; i<list.length; i++ ) {
+          const newTagElement=document.createElement('list[i]');
+        }
+        
+      }
+
+
+</script>
+
+
+
+</body>
+</html>
+
+
