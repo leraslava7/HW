@@ -83,24 +83,22 @@ const elem=document.getElementById('frm');
                   case 'radio': {
                         const labelElem=document.createElement('label');
                         labelElem.innerHTML=elemDef.label;
-                        //const inputElem=document.createElement('input');
-                        //inputElem.type='radio';
-                        //inputElem.name=elemDef.name;
-
                         formElem.appendChild(labelElem);
-
 
                         elemDef.variants.forEach (option => {
                               const inputElem=document.createElement('input');
                               inputElem.type='radio';
                               inputElem.name=elemDef.name;
-                              inputElem.innerText=option.text;
                               inputElem.value=option.value;
+                              const optionElem=document.createElement('span');
+                              optionElem.innerText=option.text;
+                              const brElem=document.createElement('br')
                               formElem.appendChild(inputElem);
+                              formElem.appendChild(optionElem);
+                              optionElem.appendChild(brElem);//к двойному тегу подвешивать можно, к одиночному нет
                            
                         } );
-                        //formElem.appendChild(labelElem);
-                        //formElem.appendChild(inputElem);
+
                         break;
                   }
                   case 'check': {
