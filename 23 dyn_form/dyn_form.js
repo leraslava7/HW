@@ -41,8 +41,8 @@ const elem=document.getElementById('frm');
                         const inputElem=document.createElement('input');
                         inputElem.type='text';
                         inputElem.name=elemDef.name;
-                        formElem.appendChild(labelElem);
-                        formElem.appendChild(inputElem);
+                        formNew.appendChild(labelElem);
+                        formNew.appendChild(inputElem);
                         break;
                   }
                   case 'number': {
@@ -51,8 +51,8 @@ const elem=document.getElementById('frm');
                         const inputElem=document.createElement('input');
                         inputElem.type='text';
                         inputElem.name=elemDef.name;
-                        formElem.appendChild(labelElem);
-                        formElem.appendChild(inputElem);
+                        formNew.appendChild(labelElem);
+                        formNew.appendChild(inputElem);
                         break;
                   }
                   case 'shorttext': {
@@ -61,8 +61,8 @@ const elem=document.getElementById('frm');
                         const inputElem=document.createElement('input');
                         inputElem.type='text';
                         inputElem.name=elemDef.name;
-                        formElem.appendChild(labelElem);
-                        formElem.appendChild(inputElem);
+                        formNew.appendChild(labelElem);
+                        formNew.appendChild(inputElem);
                         break;
                   }
                   case 'combo': {
@@ -76,14 +76,14 @@ const elem=document.getElementById('frm');
                               optionElem.value=option.value;
                               selectElem.appendChild(optionElem);
                         } );
-                        formElem.appendChild(labelElem);
-                        formElem.appendChild(selectElem);
+                        formNew.appendChild(labelElem);
+                        formNew.appendChild(selectElem);
                         break;
                   }
                   case 'radio': {
                         const labelElem=document.createElement('label');
                         labelElem.innerHTML=elemDef.label;
-                        formElem.appendChild(labelElem);
+                        formNew.appendChild(labelElem);
 
                         elemDef.variants.forEach (option => {
                               const inputElem=document.createElement('input');
@@ -93,8 +93,8 @@ const elem=document.getElementById('frm');
                               const optionElem=document.createElement('span');
                               optionElem.innerText=option.text;
                               const brElem=document.createElement('br')
-                              formElem.appendChild(inputElem);
-                              formElem.appendChild(optionElem);
+                              formNew.appendChild(inputElem);
+                              formNew.appendChild(optionElem);
                               optionElem.appendChild(brElem);//к двойному тегу подвешивать можно, к одиночному нет
                            
                         } );
@@ -107,8 +107,8 @@ const elem=document.getElementById('frm');
                         const inputElem=document.createElement('input');
                         inputElem.type='checkbox';
                         inputElem.name=elemDef.name;
-                        formElem.appendChild(labelElem);
-                        formElem.appendChild(inputElem);
+                        formNew.appendChild(labelElem);
+                        formNew.appendChild(inputElem);
                         break;
                   }
                   case 'memo': {
@@ -116,15 +116,15 @@ const elem=document.getElementById('frm');
                         labelElem.innerHTML=elemDef.label;
                         const textElem=document.createElement('textarea');
                         textElem.name=elemDef.name;
-                        formElem.appendChild(labelElem);
-                        formElem.appendChild(textElem);
+                        formNew.appendChild(labelElem);
+                        formNew.appendChild(textElem);
                         break;
                   }
                   case 'submit': {
                         const inputElem=document.createElement('input');
                         inputElem.type='submit';
                         inputElem.value=elemDef.caption;
-                        formElem.appendChild(inputElem);
+                        formNew.appendChild(inputElem);
                         break;
                   }
             }
