@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <title>VALID_FORM</title>
+
+  </head>
+  <body>
+
+    <form name="form" method="get" action="https://fe.it-academy.by/TestForm.php">
+        <label for="RAZ">Разработчики </label>
+        <input id="RAZ" type="text" name="razr">
+        <span id="razrError"></span><br>
+
+        <label for="WN">Название сайта </label>
+        <input id="WN" type="text" name="nazv">
+        <span id="nazvError"></span><br>
+
+        <label for="URL">URL сайта </label>
+        <input id="URL" type="text" name="url">
+        <span id="urlError"></span><br>
+
+        <label for="DATA">Дата запуска сайта </label>
+        <input id="DATA" type="date" name="data">
+        <span id="dataError"></span><br>
+
+        <label for="QUA">Посетителей в сутки </label>
+        <input id="QUA" type="text" name="quan">
+        <span id="quanError"></span><br>
+
+        <label for="EMAIL">E-mail для связи </label>
+        <input id="EMAIL" type="text" name="email">
+        <span id="emailError"></span><br>
+
+        <label for="CAT">Рубрика каталога </label>
+        <select id="CAT" name="catalog">
+          <option value="1">бытовая техника</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <span id="catalogError"></span><br>
+
+        <div id="rad">
+            <label for="PAY">Размещение </label>
+            <input type="radio" name="answer" value="1">бесплатное
+            <input type="radio" name="answer" value="1">платное
+            <input type="radio" name="answer" value="1">VIP
+        <span id="radioError"></span></div><br>
+       
+        <label for="REW">Разрешить отзывы</label>
+        <input id="REW" type="checkbox" name="rewies" checked><br>
+        
+        <label for="WEB">Описание сайта</label><br>
+        <textarea name="text"></textarea>
+        <span id="textError"></span><br>
+
+        <input type="submit" value="Опубликовать">
+      </form>
+
+
+      <script defer="" src="valid.js"></script>
+
+
+</body>
+</html>
+
+
