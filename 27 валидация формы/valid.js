@@ -9,7 +9,12 @@ const dataElem=formElem.elements.data;
 const quanElem=formElem.elements.quan;
 const emailElem=formElem.elements.email;
 const catalogElem=formElem.elements.catalog;
-const radioElem=formElem.elements.rad;
+const catalElem=formElem.querySelector('.catal');
+const elemsRadio=formElem.elements.answer;
+for (var i = elemsRadio.length - 1; i >= 0; i--) {
+    var elemRadio = elemsRadio[i];
+    elemRadio.addEventListener('click', radioValid, false);     
+  } 
 //radio
 const textElem=formElem.elements.text;
 //submit
@@ -22,7 +27,9 @@ dataElem.addEventListener("blur", (eo)=>dataValid(false));
 quanElem.addEventListener("blur", (eo)=>quanValid(false));
 emailElem.addEventListener("blur", (eo)=>emailValid(false));
 catalogElem.addEventListener("change", (eo)=>catalogValid(false));
-radioElem.addEventListener("click", (eo)=>radioValid(true));
+
+
+//radioElem.addEventListener("click", (eo)=>radioValid(false));
 //radio
 textElem.addEventListener("blur", (eo)=>textValid(false));
 //submit
@@ -145,8 +152,9 @@ function catalogValid(focusOnError) {
 
     const catalogErrorElem=document.getElementById('catalogError');
     let errorsCount=0;
+    //var optionElem=catalogElem.option;
 
-    const value=catalogElem.value;
+    const value=catalElem.value;
     if ( !value ) {
         catalogErrorElem.innerHTML="заполните поле Рубрика каталога";
         if (focusOnError)
@@ -160,23 +168,51 @@ function catalogValid(focusOnError) {
     return errorsCount;
 } 
 
-function radioValid(focusOnError) {
+function radioValid() {
 
-    const radioErrorElem=document.getElementById('radioError');
+    //const radioErrorElem=document.getElementById('radioError');
+    //let errorsCount=0;
+
+    //const value=radioElem.value;
+    //if ( !value ) {
+        //radioErrorElem.innerHTML="заполните поле Размещение";
+        //if (focusOnError)
+            //radioErrorElem.focus();
+        //errorsCount++;
+    //}
+    //else {
+        //radioErrorElem.innerHTML="";
+    //}
+
+    //return errorsCount;
+
+
+
     let errorsCount=0;
-
-    const value=radioElem.value;
-    if ( !value ) {
-        radioErrorElem.innerHTML="заполните поле Размещение";
-        if (focusOnError)
-            radioErrorElem.focus();
-        errorsCount++;
-    }
-    else {
-        radioErrorElem.innerHTML="";
-    }
-
-    return errorsCount;
+        var selectRadioValue = null;
+        for (var i = 0; i < elemsRadio.length; i++) {
+          var elemRadio = elemsRadio[i];
+          console.log(elemRadio.checked);
+          console.log(elemRadio.value);
+       
+          if (elemRadio.checked===true) {
+            selectRadioValue = (elemRadio.value);
+            console.log(selectRadioValue);
+          }
+       
+          
+          
+        }
+        if (selectRadioValue <= 0) {
+          document.getElementById('radioError').innerHTML = 'Сделайте выбор типа размещения, пожалуйста!';
+          document.getElementById('radioError').style.cssText = 'color: red';
+          errorsCount++;      
+        }    
+        else {
+          document.getElementById('radioError').innerHTML = '';
+        }
+        return errorsCount;
+      
 } 
 
 function textValid(focusOnError) {
@@ -211,7 +247,7 @@ function formValid(eo) {
     errCount+=catalogValid(!errCount);
     errCount+=textValid(!errCount);
 
-    errCount+=nazvValid(!errCount);
+    errCount+=radioValid(!errCount);
 
 
 
