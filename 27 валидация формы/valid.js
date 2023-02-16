@@ -9,6 +9,8 @@ const dataElem=formElem.elements.data;
 const quanElem=formElem.elements.quan;
 const emailElem=formElem.elements.email;
 const catalogElem=formElem.elements.catalog;
+const rewElem=formElem.elements.rewies;
+const radioElem=formElem.elements.rad;
 const catalElem=formElem.querySelector('.catal');
 const elemsRadio=formElem.elements.answer;
 for (var i = elemsRadio.length - 1; i >= 0; i--) {
@@ -27,7 +29,7 @@ dataElem.addEventListener("blur", (eo)=>dataValid(false));
 quanElem.addEventListener("blur", (eo)=>quanValid(false));
 emailElem.addEventListener("blur", (eo)=>emailValid(false));
 catalogElem.addEventListener("change", (eo)=>catalogValid(false));
-
+rewElem.addEventListener("change", (eo)=>rewValid(false));
 
 //radioElem.addEventListener("click", (eo)=>radioValid(false));
 //radio
@@ -43,7 +45,7 @@ function razrValid(focusOnError) {
     if ( !value ) {
         razrErrorElem.innerHTML="заполните поле Разработчики";
         if (focusOnError)
-            razrErrorElem.focus();
+            razrElem.focus();
         errorsCount++;
     }
     else {
@@ -62,7 +64,7 @@ function nazvValid(focusOnError) {
     if ( !value ) {
         nazvErrorElem.innerHTML="заполните поле Название сайта";
         if (focusOnError)
-            nazvErrorElem.focus();
+            nazvElem.focus();
         errorsCount++;
     }
     else {
@@ -81,7 +83,7 @@ function urlValid(focusOnError) {
     if ( !value ) {
         urlErrorElem.innerHTML="заполните поле URL сайта";
         if (focusOnError)
-            urlErrorElem.focus();
+            urlElem.focus();
         errorsCount++;
     }
     else {
@@ -100,7 +102,7 @@ function dataValid(focusOnError) {
     if ( !value ) {
         dataErrorElem.innerHTML="заполните поле Дата запуска сайта";
         if (focusOnError)
-        dataErrorElem.focus();
+        dataElem.focus();
         errorsCount++;
     }
     else {
@@ -119,7 +121,7 @@ function quanValid(focusOnError) {
     if ( !value ) {
         quanErrorElem.innerHTML="заполните поле Посетителей в сутки";
         if (focusOnError)
-            quanErrorElem.focus();
+            quanElem.focus();
         errorsCount++;
     }
     else {
@@ -138,7 +140,7 @@ function emailValid(focusOnError) {
     if ( !value ) {
         emailErrorElem.innerHTML="заполните поле E-mail для связи";
         if (focusOnError)
-            emailErrorElem.focus();
+            emailElem.focus();
         errorsCount++;
     }
     else {
@@ -158,7 +160,7 @@ function catalogValid(focusOnError) {
     if ( !value ) {
         catalogErrorElem.innerHTML="заполните поле Рубрика каталога";
         if (focusOnError)
-            catalogErrorElem.focus();
+            catalogElem.focus();
         errorsCount++;
     }
     else {
@@ -168,9 +170,9 @@ function catalogValid(focusOnError) {
     return errorsCount;
 } 
 
-function radioValid() {
+function radioValid(focusOnError) {
 
-    //const radioErrorElem=document.getElementById('radioError');
+    const radioErrorElem=document.getElementById('radioError');
     //let errorsCount=0;
 
     //const value=radioElem.value;
@@ -204,16 +206,38 @@ function radioValid() {
           
         }
         if (selectRadioValue <= 0) {
-          document.getElementById('radioError').innerHTML = 'Сделайте выбор типа размещения, пожалуйста!';
-          document.getElementById('radioError').style.cssText = 'color: red';
+            radioErrorElem.innerHTML = 'Сделайте выбор типа размещения';
+            //radioErrorElem.style.cssText = 'color: red';
+          if (focusOnError)
+              radioElem.focus();
           errorsCount++;      
         }    
         else {
-          document.getElementById('radioError').innerHTML = '';
+            radioErrorElem.innerHTML = '';
         }
         return errorsCount;
       
 } 
+
+function rewValid(focusOnError) {
+
+    const rewErrorElem=document.getElementById('rewError');
+    let errorsCount=0;
+
+    const value=rewElem.checked;
+    if ( !value ) {
+        rewErrorElem.innerHTML="разрешите отзывы";
+        if (focusOnError)
+        rewElem.focus();
+        errorsCount++;
+    }
+    else {
+        rewErrorElem.innerHTML="";
+    }
+
+    return errorsCount;
+} 
+
 
 function textValid(focusOnError) {
 
@@ -224,7 +248,7 @@ function textValid(focusOnError) {
     if ( !value ) {
         textErrorElem.innerHTML="заполните поле Описание сайта";
         if (focusOnError)
-        textErrorElem.focus();
+        textElem.focus();
         errorsCount++;
     }
     else {
@@ -246,7 +270,7 @@ function formValid(eo) {
     errCount+=emailValid(!errCount);
     errCount+=catalogValid(!errCount);
     errCount+=textValid(!errCount);
-
+    errCount+=rewValid(!errCount);
     errCount+=radioValid(!errCount);
 
 
