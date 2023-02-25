@@ -1,6 +1,7 @@
 
 function buildClock() {
     const elemClock=document.getElementById('clock');
+    const elemDig=document.getElementById('digital');
     const form=document.forms.FPos;
     const sizeClock=parseFloat(form.elements.razmer.value);//размер часов
     
@@ -38,8 +39,8 @@ function buildClock() {
         numElem.style.cssText="background-color: white; position: absolute; border-radius: 50%; text-align: center;";
         numElem.style.width=numWH+"px";
         numElem.style.height=numWH+"px";
-        numElem.style.left=numX+"px";
-        numElem.style.top=numY+"px";
+        numElem.style.left=(numX)+"px";
+        numElem.style.top=(numY-numWH/2)+"px";
         numElem.style.zIndex=999;
         elemClock.appendChild(numElem);
     }

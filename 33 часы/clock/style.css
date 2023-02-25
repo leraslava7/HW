@@ -1,15 +1,11 @@
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+   
 }
 body{
     height: 100vh;
-    background: linear-gradient(
-        to bottom,
-        #2987e4 50%,
-        #16191e 50%
-    );
+    background: #2987e4;
 }
 .FPos{
     position: absolute;
