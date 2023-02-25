@@ -1,10 +1,19 @@
 
 function buildClock() {
     const elemClock=document.getElementById('clock');
-    const elemHand=document.getElementsByClassName('hand');
     const elemDig=document.getElementById('digital');
     const form=document.forms.FPos;
     const sizeClock=parseFloat(form.elements.razmer.value);//размер часов
+    if ( sizeClock<200 ) {
+        alert("Введите значение больше 200");
+        return;
+    }
+    else {
+        if ( sizeClock>800 ) {
+            alert("Введите значение меньше 800");
+            return;
+        };
+    }
     
     //elemClock.style.cssText="display: block";
     form.style.cssText="display: none";
