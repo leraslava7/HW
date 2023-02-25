@@ -64,25 +64,25 @@ function buildWatch() {
         const secondsAngle=360/60*seconds;
 //часовая стрелка
         document.getElementById("hoursArr").style.height=50+"px";
-        document.getElementById("hoursArr").style.left=radius+"px";
-        document.getElementById("hoursArr").style.top=radius+"px";//пока так
+        document.getElementById("hoursArr").style.left=centerX+"px";
+        document.getElementById("hoursArr").style.top=centerY+"px";//пока так
         document.getElementById("hoursArr").style.
           transform=`rotate(${hoursAngle}deg)`;
 //минутная стрелка
         document.getElementById("minutesArr").style.height=70+"px";
-        document.getElementById("minutesArr").style.left=radius+"px";
-        document.getElementById("minutesArr").style.top=razmWatch/3+"px";//пока так
+        document.getElementById("minutesArr").style.left=centerX+"px";
+        document.getElementById("minutesArr").style.top=centerY+"px";//пока так
         document.getElementById("minutesArr").style.
           transform=`rotate(${minutesAngle}deg)`;
           //секундная стрелка
         document.getElementById("secondsArr").style.height=100+"px";
-        document.getElementById("secondsArr").style.left=radius+"px";
-        document.getElementById("secondsArr").style.top=(razmWatch/3)+"px";//пока так
+        document.getElementById("secondsArr").style.left=centerX+"px";
+        document.getElementById("secondsArr").style.top=centerY+"px";//пока так
         document.getElementById("secondsArr").style.
           transform=`rotate(${secondsAngle}deg)`;
 
 
-        setTimeout(pos, 1010-ms);
+        //setTimeout(pos, 1010-ms);
 
 
     }
