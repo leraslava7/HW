@@ -21,7 +21,7 @@ function buildClock() {
 
 
     function sizeCl() {
-        elemClock.style.cssText="background: #16191e; position: absolute; transform: translate(-50%,-50%); top: 50%; left: 50%; border-radius: 50%; border: 15px solid #242931; box-shadow: 15px 15px 35px rgba(0,0,0,0.2), inset 0 0 30px rgba(0,0,0,0.4);";
+        elemClock.style.cssText="background-color: orange; position: absolute; transform: translate(-50%,-50%); top: 50%; left: 50%; border-radius: 50%; border: 15px solid #242931; box-shadow: 15px 15px 35px rgba(0,0,0,0.2), inset 0 0 30px rgba(0,0,0,0.4);";
         elemClock.style.width=sizeClock + "px"; 
         elemClock.style.height=sizeClock + "px";
         
@@ -45,7 +45,7 @@ function buildClock() {
         const numY=centerY-radius*Math.cos(angle);
         const numElem=document.createElement('div');
         numElem.innerHTML=n;
-        numElem.style.cssText="background-color: white; position: absolute; border-radius: 50%; text-align: center;";
+        numElem.style.cssText="background-color: green; position: absolute; border-radius: 50%; text-align: center;";
         numElem.style.width=numWH+"px";
         numElem.style.height=numWH+"px";
         numElem.style.left=(numX)+"px";
