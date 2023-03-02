@@ -7,7 +7,25 @@ function buildClock() {
 
 	hour = hour < 12 ? hour : hour - 12;
 	var form = document.forms.FPos;
+	const sizeClock=parseFloat(form.elements.Razmer.value);//размер часов
 	var clockRadius = parseFloat(form.elements.Razmer.value) / 2;
+
+	if ( sizeClock<200 ) {
+        alert("Введите значение больше 200");
+        return;
+    }
+    else {
+        if ( sizeClock>800 ) {
+            alert("Введите значение меньше 800");
+            return;
+        };
+    }
+    
+    form.style.cssText="display: none";
+
+	var bodyElem = document.getElementById('body');
+	bodyElem.style.fontSize = clockRadius/10 + "px";
+
 	var cvs = document.getElementById('clock');
 	cvs.setAttribute("width", clockRadius * 2);
 	cvs.setAttribute("height", clockRadius * 2);
@@ -35,7 +53,8 @@ function buildClock() {
 		context.fill();
 
 		context.fillStyle = 'black';
-		context.font = 'italic bold 28px Arial';
+		context.font = 'italic bold '+clockRadius/10+'px Arial';
+		//context.font = clockRadius/10 + "px";
 		context.textAlign = 'center';
 		context.textBaseline = 'middle';
 		context.fillText(i, clockNumX - clockRadius * 0.01, clockNumY + clockRadius * 0.02);
@@ -47,13 +66,14 @@ function buildClock() {
 
 	var contexTime = cvs.getContext('2d');
 	contexTime.fillStyle = 'black';
-	contexTime.font = 'italic bold 28 px Arial';
+	contexTime.font = 'italic bold '+clockRadius/10+'px Arial';
 	contexTime.fillText(currTimeStr, clockNumX - clockRadius * 0.01, clockNumY + clockRadius * 0.4);
+	
 
 	var contextSecond = cvs.getContext('2d');
 	contextSecond.strokeStyle = 'black';
 	contextSecond.lineCap = 'round';
-	contextSecond.lineWidth = 2;
+	contextSecond.lineWidth = clockRadius/200;
 	contextSecond.beginPath();
 	contextSecond.moveTo(clockRadius, clockRadius);
 	contextSecond.lineTo((clockRadius + clockRadius * 0.75 * Math.sin(second / 60 * 2 * Math.PI)), (clockRadius - clockRadius * 0.75 * Math.cos(second / 60 * 2 * Math.PI)));
@@ -62,7 +82,7 @@ function buildClock() {
 	var contexMinute = cvs.getContext('2d');
 	contexMinute.strokeStyle = 'black';
 	contexMinute.lineCap = 'round';
-	contexMinute.lineWidth = 6;
+	contexMinute.lineWidth = clockRadius/50;
 	contexMinute.beginPath();
 	contexMinute.moveTo(clockRadius, clockRadius);
 	contexMinute.lineTo((clockRadius + clockRadius * 0.6 * Math.sin(minute / 60 * 2 * Math.PI)), (clockRadius - clockRadius * 0.6 * Math.cos(minute / 60 * 2 * Math.PI)));
@@ -71,13 +91,14 @@ function buildClock() {
 	var contexHour = cvs.getContext('2d');
 	contexHour.strokeStyle = 'black';
 	contexHour.lineCap = 'round';
-	contexHour.lineWidth = 10;
+	contexHour.lineWidth = clockRadius/40;
 	contexHour.beginPath();
 	contexHour.moveTo(clockRadius, clockRadius);
 	contexHour.lineTo((clockRadius + clockRadius * 0.4 * Math.sin(hour / 12 * 2 * Math.PI + minute / 60 / 2)), (clockRadius - clockRadius * 0.4 * Math.cos(hour / 12 * 2 * Math.PI + minute / 60 / 2)));
 	contexHour.stroke();
     setTimeout(buildClock, 1010-ms);
     console.log(currTime);
+	
 }
 
 
