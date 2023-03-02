@@ -2,6 +2,7 @@
 function buildClock() {
 	var form = document.forms.FPos;
 	const sizeClock=parseFloat(form.elements.Razmer.value);//размер часов
+	const clockRadius = sizeClock / 2;
 
 	if ( sizeClock<200 ) {
         alert("Введите значение больше 200");
@@ -29,7 +30,7 @@ function buildClock() {
 	hour = hour < 12 ? hour : hour - 12;
 
 	
-	var clockRadius = parseFloat(form.elements.Razmer.value) / 2;
+	
 
 	var cvs = document.getElementById('clock');
 	cvs.setAttribute("width", clockRadius * 2);
