@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapper</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id='IMyModal' class='SModalGlass'>
+            <div id='IMyModalWindow'class='SModalWindow'>
+                <h2 style='text-align: center'>САПЁР</h2>
+                <label for="level">Выберите уровень сложности</label>
+                    <select class="level" id="LevelCh" name="level">
+                            <option value="1" name="level1">простой</option>
+                            <option value="2" name="level2">средний</option>
+                            <option value="3" name="level3">сложный</option>
+                    </select>
+                <br>
+                <input type="submit" id='StartSub' value="СТАРТ" onclick='closeModal()'>
+            </div>
+        </div>
+    
+        <div class="game" id="gameZone">
+            <div class="timer" id="gameTimer">
+                <span class="material-symbols-outlined" id="clockTimer">
+                    timer
+                </span>
+                <h1><time>00:00:00</time></h1>
+            </div>
+            <div class="field"></div>
+        </div>
+
+        <div class="endGame" id="endGame"></div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>
