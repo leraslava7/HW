@@ -6,6 +6,9 @@
 
     var countSec = 0; //время игры в секундах
 
+    const clickAudio=new Audio("471642__puerta118m__bomb-grenade-shot-at-enemy.wav"); //звук установки флага
+    const endGameAudio= new Audio("607207__fupicat__congrats.wav"); //звук конца игры
+
     function openModal() {
         document.getElementById('IMyModal').style.display='block';
         document.getElementById('endGame').style.top='-50%';
@@ -42,6 +45,7 @@
 
         startGame(width, height, bombs_count); 
         addTimer();//включаем таймер
+        clickSoundInit();//запускаем звук
     
         function startGame() {
             //создаем поле с кнопками
@@ -113,8 +117,9 @@
                 if ( cell.disabled === true ) return; //остановка рекурсии
         
                 if ( isBomb(row, column) ) { 
+                    clickSound();
+                    vibro(true);
                     cell.innerHTML = '💣'; //если бомба, ставим крестик
-                    alert('Вы проиграли!');
                     endTimer();
                     looseFunc();
                     return; //startGame(width, height, bombs_count); //ошибка в консоли!!!
@@ -124,7 +129,8 @@
                 closedCount--;
         
                 if (closedCount <= bombs_count) {
-                    alert('Вы выиграли!');
+                    endGameSound();
+                    vibro(false);
                     endTimer();
                     wonFunc();
                     return; //startGame(width, height, bombs_count);
@@ -145,6 +151,7 @@
             }
         
             function addFlag(row, column) { //установка флага
+                
                 const index = row * width + column;
                 const cell = cells[index];
                 cell.innerHTML = '🚩';
@@ -163,8 +170,8 @@
         //включаем таймер
         const gameTimer = document.getElementById('gameTimer');
         const clockTimer = document.getElementById('clockTimer');
-        gameTimer.style.cssText = "display: block;";  
-        const h1 = document.getElementsByTagName('h1')[0];
+        gameTimer.style.cssText = "opacity: 1;";  
+       
         var sec = 0;
         var min = 0;
         var hrs = 0;
@@ -197,7 +204,7 @@
             }
       
             function add() {
-        
+                const h1 = document.getElementsByTagName('h1')[0];
                 tick();
                 h1.textContent = (hrs > 9 ? hrs : "0" + hrs) 
                        + ":" + (min > 9 ? min : "0" + min)
@@ -265,7 +272,8 @@
 
         buttonElem.type='submit';
         buttonElem.value='Попробовать еще раз';
-        buttonElem.onclick= reload ;
+        buttonElem.onclick= reload;
+        buttonElem.style.marginTop = '10px';
 
         endGameElem.appendChild(textElem);
         endGameElem.appendChild(buttonElem);
@@ -293,6 +301,61 @@
             window.location.reload();
     }
 
+    
+    //запускаем звук
+
+    function clickSoundInit() {
+        clickAudio.play(); // запускаем звук
+        clickAudio.pause(); // и сразу останавливаем
+        endGameAudio.play();
+        endGameAudio.pause();
+    }
+
+    function clickSound() {
+        clickAudio.currentTime=0; // в секундах
+        clickAudio.play();
+    }
+
+    function endGameSound() {
+        endGameAudio.currentTime=0; // в секундах
+        endGameAudio.play();
+    }
+
+    //запускаем вибрацию
+
+    function vibro(longFlag) {
+        // есть поддержка Vibration API?
+        if ( navigator.vibrate ) {
+            if ( !longFlag ) {
+                // вибрация 100мс
+                window.navigator.vibrate(100);
+            }
+            else {
+                // вибрация 3 раза по 100мс с паузами 50мс
+                window.navigator.vibrate([100,50,100,50,100]);
+            }
+        }
+    }
+
+    //AJAX
+
+    function testLoadData() {
+        $.ajax("file:///D:/HW/HW%20Java%20Script/PROJECT/text.html",
+            { type:'GET', dataType:'html',
+                  success:dataLoaded, error:errorHandler }
+        );
+    }
+
+    function dataLoaded(data) {
+        console.log('загруженные через AJAX данные:');
+        console.log(data);
+
+        document.getElementById('IPlace').innerHTML=data;
+    }
+
+    function errorHandler(jqXHR,statusStr,errorStr) {
+        alert(statusStr+' '+errorStr);
+    }
 
 
 

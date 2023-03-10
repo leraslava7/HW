@@ -3,9 +3,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sapper</title>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css"> 
     <script src="script.js" defer></script>
+    <script src='https://fe.it-academy.by/JQ/jquery.js'></script>
+
 </head>
 
 <body>
@@ -22,6 +25,8 @@
                     </select>
                 <br>
                 <input type="submit" id='StartSub' value="СТАРТ" onclick='closeModal()'>
+                <input type="button" onclick='testLoadData()' value='Читать правила игры'>
+                <div  id='IPlace'></div>
             </div>
         </div>
     
