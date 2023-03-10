@@ -1,4 +1,16 @@
+#StartSub {
+    margin: 10px 0px ;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    
+}
 
+.center {
+    text-align: center;
+}
 
 .SModalGlass {
     display: none;
@@ -18,6 +30,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+    
 
 }
 

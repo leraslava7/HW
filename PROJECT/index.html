@@ -16,17 +16,20 @@
 
         <div id='IMyModal' class='SModalGlass'>
             <div id='IMyModalWindow'class='SModalWindow'>
-                <h2 style='text-align: center'>САПЁР</h2>
+                <h2 class="center">САПЁР</h2>
                 <label for="level">Выберите уровень сложности</label>
                     <select class="level" id="LevelCh" name="level">
                             <option value="1" name="level1">простой</option>
                             <option value="2" name="level2">средний</option>
                             <option value="3" name="level3">сложный</option>
                     </select>
-                <br>
-                <input type="submit" id='StartSub' value="СТАРТ" onclick='closeModal()'>
-                <input type="button" onclick='testLoadData()' value='Читать правила игры'>
+
+                <input type="button" value='Читать правила игры' onclick='testLoadData()'>
                 <div  id='IPlace'></div>
+
+                <div >
+                    <button id='StartSub' onclick='closeModal()'>СТАРТ</button>
+                </div>
             </div>
         </div>
     

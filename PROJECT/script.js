@@ -340,7 +340,7 @@
     //AJAX
 
     function testLoadData() {
-        $.ajax("file:///D:/HW/HW%20Java%20Script/PROJECT/text.html",
+        $.ajax("http://fe.it-academy.by/Sites/0042600/text.html.html",
             { type:'GET', dataType:'html',
                   success:dataLoaded, error:errorHandler }
         );
@@ -356,6 +356,7 @@
     function errorHandler(jqXHR,statusStr,errorStr) {
         alert(statusStr+' '+errorStr);
     }
+
 
 
 
