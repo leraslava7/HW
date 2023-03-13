@@ -9,7 +9,9 @@
     const clickAudio=new Audio("471642__puerta118m__bomb-grenade-shot-at-enemy.wav"); //звук установки флага
     const endGameAudio= new Audio("607207__fupicat__congrats.wav"); //звук конца игры
 
+
     function openModal() {
+
         document.getElementById('IMyModal').style.display='block';
         document.getElementById('endGame').style.top='-50%';
     }
@@ -250,8 +252,11 @@
         buttonElem.onclick= reload;
         buttonElem.style.marginTop = '10px';
 
+
+
         endGameElem.appendChild(textElem);
         endGameElem.appendChild(buttonElem);
+
 
 
         return;
@@ -271,7 +276,7 @@
         textElem.innerHTML = '<h2>Вы выиграли :)</h2><br><span>Время игры: ' + countSec + ' ' + getNumWord(countSec,'секунда','секунды','секунд') + '</span><br>';
 
         buttonElem.type='submit';
-        buttonElem.value='Попробовать еще раз';
+        buttonElem.value='Играть еще раз';
         buttonElem.onclick= reload;
         buttonElem.style.marginTop = '10px';
 
@@ -356,6 +361,14 @@
     function errorHandler(jqXHR,statusStr,errorStr) {
         alert(statusStr+' '+errorStr);
     }
+
+    //Запоминаем игрока
+    
+    
+
+   
+
+    
 
 
 

@@ -7,6 +7,27 @@
     cursor: pointer;
     
 }
+#IPlace {
+    text-align: justify;
+}
+#INameError {
+    color: red;
+}
+
+.GAMER_NAME {
+    margin: 10px 0px ;
+    display: flex;
+    justify-content: space-between;
+}
+.LEVEL {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.RULES {
+    display: flex;
+    justify-content: end;
+}
 
 .center {
     text-align: center;
@@ -30,8 +51,6 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    
-
 }
 
 .field {
@@ -43,7 +62,6 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-
 }
 
 button{
@@ -66,6 +84,7 @@ button{
       'GRAD' 0, 
       'opsz' 48
 }
+
 .endGame {
     padding: 0 20px 20px 20px;
     background-color: lightgray;
@@ -75,4 +94,24 @@ button{
     top: -50%;
     transform: translate(-50%,-50%);
     transition-duration: 3s;
+}
+
+.mobile {
+    display: none;
+}
+
+@media all and (max-width: 700px) {
+    .container {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    .SModalGlass {
+        display: block;
+    }
+    h3 {
+        text-align: center;
+    }
+
 }
